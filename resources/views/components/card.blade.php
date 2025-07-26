@@ -1,6 +1,6 @@
 @props(['highlight' => false])
 
-<div @class(['class', 'highlight' => $highlight])>
+<article @class(['card', 'highlight' => $highlight])>
     {{ $slot }}
     <a {{ $attributes }} class="btn">View details</a>
-</div>
+</article>

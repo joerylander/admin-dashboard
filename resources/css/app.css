@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -6,6 +6,62 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+}
+
+body {
+    @apply bg-gray-100 text-gray-700;
+}
+
+h1 {
+    @apply text-2xl font-bold text-red-500;
+}
+h2 {
+    @apply text-xl font-bold my-4;
+}
+h3 {
+    @apply text-lg font-bold my-4;
+}
+h4 {
+    @apply text-base font-bold my-4;
+}
+p {
+    @apply my-2;
+}
+ul {
+    @apply my-10;
+}
+
+a {
+    @apply inline-block;
+}
+
+header {
+    @apply bg-white;
+
+    nav {
+        @apply flex items-center gap-5 max-w-screen-lg px-12 py-4 mx-auto;
+    }
+
+    h1 {
+        @apply mr-auto ml-8;
+    }
+}
+
+.container {
+    @apply max-w-screen-lg mx-auto;
+}
+
+.card {
+    @apply bg-white rounded border border-gray-200 px-3 py-3 my-2 flex justify-between items-center;
+}
+
+.highlight {
+    @apply border-l-4 border-l-red-500;
+}
+
+.btn {
+    @apply rounded px-3 py-2 bg-gray-200 hover:bg-red-500 hover:text-white mt-4;
 }
