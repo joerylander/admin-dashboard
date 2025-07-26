@@ -11,8 +11,12 @@
 
 <body>
     <header>
-        <h1>Dashboard</h1>
         <nav>
+            <h1>
+                <a href="/">
+                    Dashboard
+                </a>
+            </h1>
             <a href="/ninjas">
                 All Ninjas
             </a>
