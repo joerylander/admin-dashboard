@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Ninja extends Model
 {
     // define which attributes are mass assignable, i.e. guarded properties. No other attributes can be mass assigned in this model
-    protected $fillable = ['name', 'skill', 'bio'];
+    protected $fillable = ['name', 'skill', 'bio', 'dojo_id'];
 
     /** @use HasFactory<\Database\Factories\NinjaFactory> */
     use HasFactory;
