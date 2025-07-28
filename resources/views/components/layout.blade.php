@@ -17,11 +17,11 @@
                     Dashboard
                 </a>
             </h1>
-            <a href="/ninjas">
+            <a href="{{ route('ninjas.index') }}">
                 All Ninjas
             </a>
 
-            <a href="/ninjas/create">
+            <a href="{{ route('ninjas.create') }}">
                 Create new Ninja
             </a>
         </nav>

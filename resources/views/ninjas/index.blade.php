@@ -6,12 +6,19 @@
             <li>
                 {{-- href="..." == attribute --}}
                 {{-- :highlight == property --}}
-                <x-card href="/ninjas/{{ $ninja['id'] }}" :highlight="$ninja['skill'] > 50">
-                    <h3>
-                        {{ $ninja['name'] }}
-                    </h3>
+                <x-card href="{{ route('ninjas.show', $ninja->id) }}" :highlight="$ninja['skill'] > 50">
+                    <div class="">
+                        <h3>
+                            {{ $ninja->name }}
+                        </h3>
+                        <p>
+                            {{ $ninja->dojo->name }}
+                        </p>
+                    </div>
                 </x-card>
             </li>
         @endforeach
     </ul>
+
+    {{ $ninjas->links() }}
 </x-layout>

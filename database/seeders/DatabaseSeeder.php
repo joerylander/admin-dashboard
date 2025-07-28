@@ -20,6 +20,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        $this->call([NinjaSeeder::class]);
+        $this->call([
+            // Seed in order. Dojo then Ninja etc. 
+            //(Important so Dojo has id populatd so Ninja dojo_id can foreign key that reference)
+            DojoSeeder::class,
+            NinjaSeeder::class
+        ]);
     }
 }
