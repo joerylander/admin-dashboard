@@ -1,15 +1,19 @@
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<x-layout>
+    <h2>This is your new Dashboard view</h2>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard</title>
-    @vite('resources/css/app.css')
-</head>
-
-<body class="text-center px-8 py-12 mx-auto">
-    <h1>Welcome to your new Admin Dashboard</h1>
-</body>
-
-</html>
+    <section>
+        <h3>Benefits</h3>
+        @foreach ($benefits as $benefit)
+            <x-card>
+                <div>
+                    <h4>
+                        {{ $benefit->title }}
+                    </h4>
+                    <p>
+                        {{ $benefit->description }}
+                    </p>
+                </div>
+            </x-card>
+        @endforeach
+    </section>
+</x-layout>

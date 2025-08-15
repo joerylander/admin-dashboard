@@ -34,10 +34,6 @@ ul {
     @apply my-10;
 }
 
-a {
-    /* @apply inline-block; */
-}
-
 /* form elements */
 form {
     @apply max-w-screen-sm;
@@ -49,6 +45,10 @@ textarea {
 }
 
 button {
+    @apply hover:cursor-pointer;
+}
+
+a {
     @apply hover:cursor-pointer;
 }
 
