@@ -4,7 +4,7 @@
     <section>
         <h3>Benefits</h3>
         @foreach ($benefits as $benefit)
-            <x-card>
+            <x-card :highlight=true>
                 <div>
                     <h4>
                         {{ $benefit->title }}
