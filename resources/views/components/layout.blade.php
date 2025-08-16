@@ -19,21 +19,17 @@
     <header>
         <nav>
             <h1>
-                <a href="/">
+                <a href="/dashboard">
                     Dashboard
                 </a>
             </h1>
-            <a href="{{ route('ninjas.index') }}">
-                All Ninjas
-            </a>
-
-            <a href="{{ route('ninjas.create') }}">
-                Create new Ninja
+            <a href="{{ route('benefits.index') }}">
+                Benefits
             </a>
         </nav>
     </header>
 
-    <main class="container">
+    <main class="container p-6">
         {{ $slot }}
     </main>
 

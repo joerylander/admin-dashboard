@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\BenefitController;
+use App\Http\Controllers\Api\BenefitController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

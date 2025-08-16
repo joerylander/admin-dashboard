@@ -1,5 +1,5 @@
 <x-layout>
-    <h2>This is your new Dashboard view</h2>
+    <h2>Overview</h2>
 
     <section>
         <h3>Benefits</h3>

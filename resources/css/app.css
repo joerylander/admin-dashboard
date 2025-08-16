@@ -30,9 +30,6 @@ h4 {
 p {
     @apply my-2;
 }
-ul {
-    @apply my-10;
-}
 
 /* form elements */
 form {
@@ -45,7 +42,7 @@ textarea {
 }
 
 button {
-    @apply hover:cursor-pointer;
+    @apply hover:cursor-pointer rounded px-3 py-2 bg-gray-200 hover:bg-red-500 hover:text-white mt-4;
 }
 
 a {

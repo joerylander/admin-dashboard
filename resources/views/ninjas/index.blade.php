@@ -20,5 +20,6 @@
         @endforeach
     </ul>
 
+    {{-- Pagination method --}}
     {{ $ninjas->links() }}
 </x-layout>
