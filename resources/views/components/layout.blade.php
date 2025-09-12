@@ -10,26 +10,20 @@
 </head>
 
 <body>
+    <div class="min-h-screen bg-[#0a0a0a] text-[#ededed]">
+        <x-header />
 
-    <header>
-        <nav>
-            <h1>
-                <a href="/dashboard">
-                    Dashboard
-                </a>
-            </h1>
-            <a href="{{ route('benefits.index') }}">
-                Benefits
-            </a>
-        </nav>
-    </header>
+        <div class="flex">
+            <!-- Sidebar -->
+            <x-sidebar />
 
-    <x-success-message />
-
-    <main class="container p-6">
-        {{ $slot }}
-    </main>
-
+            <!-- Main Content -->
+            <main class="flex-1 flex flex-col p-8">
+                <x-success-message />
+                {{ $slot }}
+            </main>
+        </div>
+    </div>
 </body>
 
 </html>

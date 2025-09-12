@@ -6,65 +6,13 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
-}
-
-body {
-    @apply bg-gray-100 text-gray-700;
-}
-
-h1 {
-    @apply text-2xl font-bold text-red-500;
-}
-h2 {
-    @apply text-xl font-bold my-4;
-}
-h3 {
-    @apply text-lg font-bold my-4;
-}
-h4 {
-    @apply text-base font-bold my-4;
-}
-p {
-    @apply my-2;
-}
-
-/* form elements */
-form {
-    @apply max-w-screen-sm;
-}
-input,
-select,
-textarea {
-    @apply block w-full mt-2 mb-4 p-2 bg-white;
+    --font-sans: "Helvetica", ui-sans-serif, system-ui, sans-serif;
 }
 
 button {
-    @apply hover:cursor-pointer rounded px-3 py-2 bg-gray-200 hover:bg-red-500 hover:text-white mt-4;
+    cursor: pointer;
 }
 
 a {
-    @apply hover:cursor-pointer;
-}
-
-header {
-    @apply bg-white;
-
-    nav {
-        @apply flex items-center gap-5 max-w-screen-lg px-12 py-4 mx-auto;
-    }
-
-    h1 {
-        @apply mr-auto;
-    }
-}
-
-.container {
-    @apply max-w-screen-lg mx-auto;
-}
-
-.highlight {
-    @apply border-l-4 border-l-red-500;
+    cursor: pointer;
 }

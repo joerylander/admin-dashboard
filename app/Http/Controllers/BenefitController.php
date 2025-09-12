@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\StringHelper;
 use App\Models\Benefit;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class BenefitController extends Controller
 {
     public function index() {
         $benefits = Benefit::all();
-       return view('benefits.index', ['benefits' => $benefits]);
+       return view('projects.portfolio.benefits.index', ['benefits' => $benefits]);
     }
 
     public function store(Request $request) {
@@ -20,8 +21,9 @@ class BenefitController extends Controller
             'title' => 'required|string|max:100',
             'description' => 'required|string|min:20|max:1000'
         ]);
+        $validated['title'] = StringHelper::formatTitle($validated['title']);
         Benefit::create($validated);
-      return redirect()->route('benefits.index')->with('success', 'Benefit created');
+      return redirect()->route('portfolio.benefits.index')->with('success', 'Benefit created');
     }
 
     public function update(Request $request, Benefit $benefit) {
@@ -29,12 +31,13 @@ class BenefitController extends Controller
         'title' => 'required|string|max:100',
         'description' => 'required|string|min:20|max:1000'
     ]);
+      $validated['title'] = StringHelper::formatTitle($validated['title']);
         $benefit->update($validated);
-      return redirect()->route('benefits.index')->with('success', 'Benefit ' . $benefit->title . ' updated');
+      return redirect()->route('portfolio.benefits.index')->with('success', 'Benefit ' . $benefit->title . ' updated');
     }
 
     public function destroy(Benefit $benefit) {
         $benefit->delete();
-       return redirect()->route('benefits.index')->with('success', 'Benefit deleted: ' . $benefit->title);
+       return redirect()->route('portfolio.benefits.index')->with('success', 'Benefit deleted: ' . $benefit->title);
     }
 }

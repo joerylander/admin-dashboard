@@ -3,11 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BenefitController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NinjaController;
+use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\PortfolioController;
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('projects.index'); // Edit later to show hero page
 });
 Route::get('/ninjas', [NinjaController::class, 'index'])->name('ninjas.index');
 Route::get("/ninjas/create", [NinjaController::class, 'create'])->name('ninjas.create');
@@ -19,10 +20,12 @@ Route::delete("/ninjas/{ninja}", [NinjaController::class, 'destroy'])->name('nin
 // Auth
 Route::get('/auth/login', [AuthController::class, 'index'])->name('auth.index');
 
-// Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-// Benefits
-Route::get('dashboard/benefits', [BenefitController::class, 'index'])->name('benefits.index');
-Route::post('dashboard/benefits', [BenefitController::class, 'store'])->name('benefits.store');
-Route::put('dashboard/benefits/{benefit}', [BenefitController::class, 'update'])->name('benefits.update');
-Route::delete('dashboard/benefits/{benefit}', [BenefitController::class, 'destroy'])->name('benefits.destroy');
+// Projects 
+Route::get('/projects', [ProjectsController::class, 'index'])->name('projects.index');
+// Project: Portfolio
+Route::get('/projects/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index');
+// Portfolio benefits
+Route::get('/projects/portfolio/benefits', [BenefitController::class, 'index'])->name('portfolio.benefits.index');
+Route::post('/projects/portfolio/benefits', [BenefitController::class, 'store'])->name('portfolio.benefits.store');
+Route::put('/projects/portfolio/benefits/{benefit}', [BenefitController::class, 'update'])->name('portfolio.benefits.update');
+Route::delete('/projects/portfolio/benefits/{benefit}', [BenefitController::class, 'destroy'])->name('portfolio.benefits.destroy');
