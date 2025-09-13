@@ -10,3 +10,5 @@ Route::get('/user', function (Request $request) {
 
 // Benefits
 Route::get('/benefits', [BenefitController::class, 'index']);
+
+// Testimonials

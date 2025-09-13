@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
             //(Important so Dojo has id populatd so Ninja dojo_id can foreign key that reference)
             DojoSeeder::class,
             NinjaSeeder::class,
-            BenefitSeeder::class    
+            BenefitSeeder::class,
+            TestimonialSeeder::class
         ]);
     }
 }
