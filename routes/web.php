@@ -6,6 +6,10 @@ use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\NinjaController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\TestimonialController;
+
+// Portfolio base path constant
+const PORTFOLIO_PATH = '/projects/portfolio';
 
 Route::get('/', function () {
     return view('projects.index'); // Edit later to show hero page
@@ -23,9 +27,11 @@ Route::get('/auth/login', [AuthController::class, 'index'])->name('auth.index');
 // Projects 
 Route::get('/projects', [ProjectsController::class, 'index'])->name('projects.index');
 // Project: Portfolio
-Route::get('/projects/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index');
-// Portfolio benefits
-Route::get('/projects/portfolio/benefits', [BenefitController::class, 'index'])->name('portfolio.benefits.index');
-Route::post('/projects/portfolio/benefits', [BenefitController::class, 'store'])->name('portfolio.benefits.store');
-Route::put('/projects/portfolio/benefits/{benefit}', [BenefitController::class, 'update'])->name('portfolio.benefits.update');
-Route::delete('/projects/portfolio/benefits/{benefit}', [BenefitController::class, 'destroy'])->name('portfolio.benefits.destroy');
+Route::get(PORTFOLIO_PATH, [PortfolioController::class, 'index'])->name('portfolio.index');
+// Portfolio Benefits
+Route::get(PORTFOLIO_PATH . '/benefits', [BenefitController::class, 'index'])->name('portfolio.benefits.index');
+Route::post(PORTFOLIO_PATH . '/benefits', [BenefitController::class, 'store'])->name('portfolio.benefits.store');
+Route::put(PORTFOLIO_PATH . '/benefits/{benefit}', [BenefitController::class, 'update'])->name('portfolio.benefits.update');
+Route::delete(PORTFOLIO_PATH . '/benefits/{benefit}', [BenefitController::class, 'destroy'])->name('portfolio.benefits.destroy');
+// Portfolio Testimonials
+Route::get(PORTFOLIO_PATH . '/testimonials', [TestimonialController::class, 'index'])->name('portfolio.testimonials.index');

@@ -4,6 +4,7 @@
 
     <div class="mt-4">
         <a href="{{ route('portfolio.benefits.index') }}">View Benefits</a>
+        <a href="{{ route('portfolio.testimonials.index') }}">View Testimonials</a>
         <a href="{{ route('projects.index') }}">Back to Projects</a>
     </div>
 </x-layout>
