@@ -8,8 +8,9 @@ use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\TestimonialController;
 
-// Portfolio base path constant
-const PORTFOLIO_PATH = '/projects/portfolio';
+if (!defined('PORTFOLIO_PATH')) {
+     define('PORTFOLIO_PATH', '/projects/portfolio');
+}
 
 Route::get('/', function () {
     return view('projects.index'); // Edit later to show hero page
