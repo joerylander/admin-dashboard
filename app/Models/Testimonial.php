@@ -7,7 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Testimonial extends Model
 {
-     protected $fillable = ['firstName', 'lastName', 'title', 'testimonial'];
     /** @use HasFactory<\Database\Factories\TestimonialFactory> */
     use HasFactory;
+    protected $fillable = ['firstName', 'lastName', 'title', 'testimonial'];
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
 }

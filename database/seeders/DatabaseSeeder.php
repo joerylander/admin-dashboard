@@ -23,10 +23,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             // Seed in order. Dojo then Ninja etc. 
             //(Important so Dojo has id populatd so Ninja dojo_id can foreign key that reference)
+            ImageSeeder::class,
             DojoSeeder::class,
             NinjaSeeder::class,
             BenefitSeeder::class,
-            TestimonialSeeder::class
+            TestimonialSeeder::class,
         ]);
     }
 }

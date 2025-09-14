@@ -13,7 +13,7 @@ class Image extends Model
     /** @use HasFactory<\Database\Factories\ImageFactory> */
     use HasFactory;
 
-    public function getUrlAttributes() 
+    public function getUrlAttribute() 
     {
         return Storage::url($this->file_path);
     }

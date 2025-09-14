@@ -5,11 +5,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-test('example', function () {
-    $response = $this->get('/');
-    $response->assertStatus(200);
-});
-
 test('it can create and save an image', function() {
         // Arrange - Set up test data
     $imageData = [
@@ -21,7 +16,6 @@ test('it can create and save an image', function() {
 
     // Act - Create and save to database
     $image = Image::create($imageData);
-dump($image);
     // Assert - Check it worked
     expect($image)->toBeInstanceOf(Image::class);
     expect($image->id)->not()->toBeNull(); // ← This proves it was saved!
@@ -32,4 +26,17 @@ dump($image);
         'file_path' => 'images/test.jpg',
         'original_filename' => 'test.jpg'
     ]);
+});
+
+test('it can create and save an image using factory', function() {
+    // Act - Use factory to create image
+    $image = Image::factory()->create();
+    
+    // Assert
+    expect($image)->toBeInstanceOf(Image::class);
+    expect($image->id)->not()->toBeNull();
+    expect($image->file_path)->toContain('images/');
+    
+    dump("Created image: " . $image->file_path);
+    dump("URL would be: " . $image->url);
 });

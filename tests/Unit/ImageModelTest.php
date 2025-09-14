@@ -1,11 +1,6 @@
 <?php
 
 use App\Models\Image;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-
-test('example', function () {
-    expect(true)->toBeTrue();
-});
 
 test('it can create an image', function() {
     // Arrange - Set up mock data

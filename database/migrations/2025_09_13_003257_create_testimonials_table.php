@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('lastName');
             $table->string('title');
             $table->text('testimonial');
+            $table->foreignId('image_id')->nullable()->constrained('images')->onDelete('set null');
         });
     }
 

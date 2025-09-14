@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Image;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,7 +21,8 @@ class TestimonialFactory extends Factory
             'firstName' => fake()->firstName(),
             'lastName' => fake()->lastName(),
             'title' => fake()->jobTitle(),
-            'testimonial' => fake()->paragraph()
+            'testimonial' => fake()->paragraph(),
+            'image_id' => Image::where('file_path', 'like', 'images/profiles/%')->inRandomOrder()->first()?->id
         ];
     }
 }
