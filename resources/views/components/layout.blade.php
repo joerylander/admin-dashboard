@@ -19,11 +19,21 @@
 
             <!-- Main Content -->
             <main class="flex-1 flex flex-col p-8">
-                <x-success-message />
+                <x-messages.success />
                 {{ $slot }}
             </main>
         </div>
     </div>
 </body>
+
+<script>
+    // Close modals if clicking outside
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('bg-black')) {
+            event.target.classList.add('hidden');
+            event.target.style.display = 'none';
+        }
+    });
+</script>
 
 </html>
