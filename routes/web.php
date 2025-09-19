@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BenefitController;
@@ -25,6 +26,11 @@ Route::delete("/ninjas/{ninja}", [NinjaController::class, 'destroy'])->name('nin
 // Auth
 Route::get('/auth/login', [AuthController::class, 'index'])->name('auth.index');
 
+// Media
+Route::get('/images', [ImageController::class, 'index'])->name('images.index');
+Route::post('/images', [ImageController::class, 'store'])->name('images.store');
+Route::delete('/images/{image}', [ImageController::class, 'destroy'])->name('images.destroy');
+
 // Projects 
 Route::get('/projects', [ProjectsController::class, 'index'])->name('projects.index');
 // Project: Portfolio
@@ -36,3 +42,6 @@ Route::put(PORTFOLIO_PATH . '/benefits/{benefit}', [BenefitController::class, 'u
 Route::delete(PORTFOLIO_PATH . '/benefits/{benefit}', [BenefitController::class, 'destroy'])->name('portfolio.benefits.destroy');
 // Portfolio Testimonials
 Route::get(PORTFOLIO_PATH . '/testimonials', [TestimonialController::class, 'index'])->name('portfolio.testimonials.index');
+Route::post(PORTFOLIO_PATH . '/testimonials', [TestimonialController::class, 'store'])->name('portfolio.testimonials.store');
+Route::put(PORTFOLIO_PATH . '/testimonials/{testimonial}', [TestimonialController::class, 'update'])->name('portfolio.testimonials.update');
+Route::delete(PORTFOLIO_PATH . '/testimonials/{testimonial}', [TestimonialController::class, 'destroy'])->name('portfolio.testimonials.destroy');
