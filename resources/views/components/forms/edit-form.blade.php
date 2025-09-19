@@ -34,12 +34,20 @@
 <script>
     function showEditForm(id) {
         const modal = document.getElementById(`editForm${id}`);
+        if (!modal) {
+            console.error(`Element with id "editForm${id}" not found`);
+            return;
+        }
         modal.classList.remove('hidden');
         modal.style.display = 'flex';
     }
 
     function hideEditForm(id) {
         const modal = document.getElementById(`editForm${id}`);
+        if (!modal) {
+            console.error(`Element with id "editForm${id}" not found`);
+            return;
+        }
         modal.classList.add('hidden');
         modal.style.display = 'none';
     }

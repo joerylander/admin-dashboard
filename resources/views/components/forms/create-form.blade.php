@@ -33,8 +33,8 @@
      function hideCreateForm() {
          const modal = document.getElementById('createForm');
          if (!modal) {
-             console.error(modal);
-             return
+             console.error('Element with id "createForm" not found');
+             return;
          }
          modal.classList.add('hidden');
          modal.style.display = 'none';

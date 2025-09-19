@@ -12,6 +12,10 @@
 <script>
     function showCreateForm() {
         const modal = document.getElementById('createForm');
+        if (!modal) {
+            console.error('Element with id "createForm" not found');
+            return;
+        }
         modal.classList.remove('hidden');
         modal.style.display = 'flex';
     }
