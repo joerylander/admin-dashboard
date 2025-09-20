@@ -8,9 +8,7 @@ use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\TestimonialController;
 
-if (!defined('PORTFOLIO_PATH')) {
-     define('PORTFOLIO_PATH', '/projects/portfolio');
-}
+
 
 Route::get('/', function () {
     return view('projects.index'); // Edit later to show hero page
@@ -27,16 +25,24 @@ Route::prefix('media')->name('media.')->group(function() {
 });
 
 // Projects 
-Route::get('/projects', [ProjectsController::class, 'index'])->name('projects.index');
-// Project: Portfolio
-Route::get(PORTFOLIO_PATH, [PortfolioController::class, 'index'])->name('portfolio.index');
-// Portfolio Benefits
-Route::get(PORTFOLIO_PATH . '/benefits', [BenefitController::class, 'index'])->name('portfolio.benefits.index');
-Route::post(PORTFOLIO_PATH . '/benefits', [BenefitController::class, 'store'])->name('portfolio.benefits.store');
-Route::put(PORTFOLIO_PATH . '/benefits/{benefit}', [BenefitController::class, 'update'])->name('portfolio.benefits.update');
-Route::delete(PORTFOLIO_PATH . '/benefits/{benefit}', [BenefitController::class, 'destroy'])->name('portfolio.benefits.destroy');
-// Portfolio Testimonials
-Route::get(PORTFOLIO_PATH . '/testimonials', [TestimonialController::class, 'index'])->name('portfolio.testimonials.index');
-Route::post(PORTFOLIO_PATH . '/testimonials', [TestimonialController::class, 'store'])->name('portfolio.testimonials.store');
-Route::put(PORTFOLIO_PATH . '/testimonials/{testimonial}', [TestimonialController::class, 'update'])->name('portfolio.testimonials.update');
-Route::delete(PORTFOLIO_PATH . '/testimonials/{testimonial}', [TestimonialController::class, 'destroy'])->name('portfolio.testimonials.destroy');
+Route::prefix('/projects')->group(function() {
+    Route::get('/', [ProjectsController::class, 'index'])->name('projects.index');
+    // Portfolio
+    Route::prefix('/portfolio')->name('portfolio.')->group(function() {
+        Route::get('/', [PortfolioController::class, 'index'])->name('index');
+        // Benefits
+        Route::prefix('benefits')->name('benefits.')->group(function() {
+            Route::get('/', [BenefitController::class, 'index'])->name('index');
+            Route::post('/', [BenefitController::class, 'store'])->name('store');
+            Route::put('/{benefit}', [BenefitController::class, 'update'])->name('update');
+            Route::delete('/{benefit}', [BenefitController::class, 'destroy'])->name('destroy');
+        });
+        // Testimonials
+        Route::prefix('testimonials')->name('testimonials.')->group(function() {
+            Route::get('/', [TestimonialController::class, 'index'])->name('index');
+            Route::post('/', [TestimonialController::class, 'store'])->name('store');
+            Route::put('/{testimonial}', [TestimonialController::class, 'update'])->name('update');
+            Route::delete('/{testimonial}', [TestimonialController::class, 'destroy'])->name('destroy');
+        });
+    });
+});
