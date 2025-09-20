@@ -27,9 +27,11 @@ Route::delete("/ninjas/{ninja}", [NinjaController::class, 'destroy'])->name('nin
 Route::get('/auth/login', [AuthController::class, 'index'])->name('auth.index');
 
 // Media
-Route::get('/images', [ImageController::class, 'index'])->name('images.index');
-Route::post('/images', [ImageController::class, 'store'])->name('images.store');
-Route::delete('/images/{image}', [ImageController::class, 'destroy'])->name('images.destroy');
+Route::prefix('media')->name('media.')->group(function() {
+    Route::get('/', [ImageController::class, 'index'])->name('index');
+    Route::post('/', [ImageController::class, 'store'])->name('store');
+    Route::delete('/{image}', [ImageController::class, 'destroy'])->name('destroy');
+});
 
 // Projects 
 Route::get('/projects', [ProjectsController::class, 'index'])->name('projects.index');
