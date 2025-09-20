@@ -23,7 +23,6 @@ class ImageController extends Controller
       $filename = time() . '_' . $file->getClientOriginalName();
       $category = $request->category;
       $filePath = "images/$category/$filename";
-      // dd($file,$filePath,$category);
       Storage::disk('public')->put($filePath, file_get_contents($file));
 
       Image::create([
