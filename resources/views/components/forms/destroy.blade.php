@@ -1,7 +1,7 @@
-@props(['item', 'route'])
+@props(['item', 'route', 'message' => 'Are you sure you want to delete this?'])
 
-<form method="POST" action="{{ route('portfolio.' . $route . '.destroy', $item) }}"
-    onsubmit="return confirm('Are you sure you want to delete this?')">
+<form method="POST" action="{{ route($route . '.destroy', $item) }}" class="flex items-center justify-center"
+    onsubmit="return confirm('{{ addslashes($message) }}')">
     @csrf
     @method('DELETE')
     <button type="submit" class="text-red-400 hover:text-red-300">

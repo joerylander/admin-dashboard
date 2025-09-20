@@ -35,4 +35,12 @@ class ImageController extends Controller
 
       return redirect()->route('media.index')->with('success', 'Image uploaded successfully');
    }
+
+   public function destroy(Image $image) {
+      Storage::disk('public')->delete($image->file_path);
+
+      $image->delete();
+
+      return redirect()->route('media.index')->with('success', 'Image deleted');
+   }
 }
