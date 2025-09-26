@@ -12,5 +12,3 @@
     {{-- Content to display --}}
     {{ $slot }}
 </article>
-
-<x-forms.edit :title="$title" :item="$item" :route="$route" />

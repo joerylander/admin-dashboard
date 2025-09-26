@@ -13,11 +13,7 @@
                 <input type="text" name="title" value="{{ $item->title }}" required
                     class="w-full px-3 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:border-blue-500">
             </div>
-            <div class="mb-6">
-                <label class="block text-sm font-medium text-gray-300 mb-2">Description</label>
-                <textarea name="description" required
-                    class="w-full px-3 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:border-blue-500 h-24">{{ $item->description }}</textarea>
-            </div>
+            {{ $slot }}
             <div class="flex space-x-3">
                 <button type="submit"
                     class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200">
