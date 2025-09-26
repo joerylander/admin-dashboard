@@ -5,7 +5,9 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach ($benefits as $benefit)
-            <x-card title="benefits" :item="$benefit" route="benefits" delMsg="Delete this benefit?" />
+            <x-card title="benefits" :item="$benefit" route="benefits" delMsg="Delete this benefit?">
+                <p class="text-gray-300 text-sm break-words">{{ $benefit->description }}</p>
+            </x-card>
         @endforeach
     </div>
 

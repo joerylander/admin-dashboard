@@ -9,7 +9,8 @@
             <x-forms.destroy :item="$item" :route="'portfolio.' . $route" :message="$delMsg" />
         </div>
     </div>
-    <p class="text-gray-300 text-sm break-words">{{ $item->description }}</p>
+    {{-- Content to display --}}
+    {{ $slot }}
 </article>
 
 <x-forms.edit :title="$title" :item="$item" :route="$route" />
