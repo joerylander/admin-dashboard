@@ -5,16 +5,9 @@
          <h3 class="text-xl font-bold text-white mb-4">Create New {{ ucfirst($title) }}</h3>
          <form method="POST" action="{{ route('portfolio.' . $route . '.store') }}">
              @csrf
-             <div class="mb-4">
-                 <label class="block text-sm font-medium text-gray-300 mb-2">Title</label>
-                 <input type="text" name="title" placeholder="Enter title" value="{{ old('title') }}" required
-                     class="w-full px-3 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:border-blue-500">
-             </div>
-             <div class="mb-6">
-                 <label class="block text-sm font-medium text-gray-300 mb-2">Description</label>
-                 <textarea name="description" placeholder="Enter description (minimum 20 characters)" required
-                     class="w-full px-3 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:border-blue-500 h-24">{{ old('description') }}</textarea>
-             </div>
+             {{-- Fields required --}}
+             {{ $slot }}
+
              <div class="flex space-x-3">
                  <button type="submit"
                      class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-200">

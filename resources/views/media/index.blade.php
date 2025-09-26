@@ -17,6 +17,7 @@
                         <option selected disabled>Select category</option>
                         <option value="general">General</option>
                         <option value="profiles">Profiles</option>
+                        <option value="projects">Projects</option>
                     </select>
                 </div>
             </div>
