@@ -1,4 +1,4 @@
-<aside class="w-64 bg-gray-800 border-r border-gray-700 flex flex-col min-h-screen">
+<aside class="w-48 bg-gray-800 border-r border-gray-700 flex flex-col min-h-screen">
     <nav class="px-4 py-6">
         <section class="mb-8">
             <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Navigation</h3>
