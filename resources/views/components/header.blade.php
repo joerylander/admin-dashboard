@@ -12,7 +12,7 @@
     </div>
 
     <div class="flex items-center space-x-4">
-        <button
-            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200">Login</button>
+        <a href="{{ route('show.login') }}"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200">Login</a>
     </div>
 </header>

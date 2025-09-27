@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Storage;
 
 class Image extends Model
 {
-     protected $fillable = ['file_path', 'original_filename', 'mime_type', 'size'];
-     protected $appends = ['url'];
     /** @use HasFactory<\Database\Factories\ImageFactory> */
     use HasFactory;
+    
+     protected $fillable = ['file_path', 'original_filename', 'mime_type', 'size'];
+     protected $appends = ['url'];
 
     public function getUrlAttribute() 
     {

@@ -15,7 +15,9 @@ Route::get('/', function () {
 });
 
 // Auth
-Route::get('/auth/login', [AuthController::class, 'index'])->name('auth.index');
+Route::prefix('auth')->name('')->group(function() { 
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('show.login');
+});
 
 // Media
 Route::prefix('media')->name('media.')->group(function() {
