@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::prefix('auth')->name('')->group(function() { 
     Route::get('/login', [AuthController::class, 'showLogin'])->name('show.login');
     Route::post('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 // Media
