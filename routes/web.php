@@ -7,10 +7,6 @@ use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\TestimonialController;
 
-Route::get('/', function () {
-    return view('projects.index'); // Edit later to show hero page
-});
-
 // Auth
 Route::prefix('auth')->controller(AuthController::class)->name('')->group(function() {
     Route::middleware('guest')->group(function() {
@@ -22,6 +18,9 @@ Route::prefix('auth')->controller(AuthController::class)->name('')->group(functi
 
 // Protected routes
 Route::middleware('auth')->group(function() {
+    Route::get('/', function () {
+        return view('projects.index'); // Edit later to show hero page
+    });
     // Media
     Route::prefix('media')->controller(ImageController::class)->name('media.')->group(function() {
         Route::get('/', 'index')->name('index');
