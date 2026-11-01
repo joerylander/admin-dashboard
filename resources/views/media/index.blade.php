@@ -7,17 +7,17 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label class="block text-sm font-medium text-gray-300 mb-2">Select Image</label>
-                    <input type="file" name="image" accept="image/*" multiple required
+                    <input type="file" name="image" accept="image/*" required
                         class="w-full px-3 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:border-blue-500">
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-300 mb-2">Category</label>
                     <select name="category" required
                         class="w-full px-3 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:border-blue-500">
-                        <option selected disabled>Select category</option>
-                        <option value="general">General</option>
-                        <option value="profiles">Profiles</option>
-                        <option value="projects">Projects</option>
+                        <option value="" disabled @selected(!old('category'))>Select category</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category }}" @selected(old('category') === $category)>{{ ucfirst($category) }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <div class="p-4">
                     <figcaption class="text-white font-medium ">
                         {{ $image->original_filename }}</figcaption>
-                    <figcaption class="text-gray-400 text-sm truncate" title={{ $image->file_path }}>
+                    <figcaption class="text-gray-400 text-sm truncate" title="{{ $image->file_path }}">
                         {{ $image->file_path }}
                     </figcaption>
                 </div>

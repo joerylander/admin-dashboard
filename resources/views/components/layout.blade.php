@@ -26,9 +26,9 @@
 </body>
 
 <script>
-    // Close modals if clicking outside
+    // Close modals if clicking outside (on the backdrop itself, not the form inside it)
     document.addEventListener('click', function(event) {
-        if (event.target.classList.contains('bg-black')) {
+        if (event.target.hasAttribute('data-modal-backdrop')) {
             event.target.classList.add('hidden');
             event.target.style.display = 'none';
         }

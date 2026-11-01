@@ -46,26 +46,26 @@ $route = 'testimonials';
                 <fieldset class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <legend class="sr-only">Personal Information</legend>
                     <div>
-                        <label for="firstName" class="block text-sm font-medium text-gray-300 mb-2">First Name</label>
-                        <input type="text" id="firstName" name="firstName" placeholder="Enter first name"
+                        <label for="firstName-{{ $testimonial->id }}" class="block text-sm font-medium text-gray-300 mb-2">First Name</label>
+                        <input type="text" id="firstName-{{ $testimonial->id }}" name="firstName" placeholder="Enter first name"
                             value="{{ $testimonial->firstName }}" required
                             class="w-full px-3 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:border-blue-500">
                     </div>
                     <div>
-                        <label for="lastName" class="block text-sm font-medium text-gray-300 mb-2">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" placeholder="Enter last name"
+                        <label for="lastName-{{ $testimonial->id }}" class="block text-sm font-medium text-gray-300 mb-2">Last Name</label>
+                        <input type="text" id="lastName-{{ $testimonial->id }}" name="lastName" placeholder="Enter last name"
                             value="{{ $testimonial->lastName }}" required
                             class="w-full px-3 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:border-blue-500">
                     </div>
                 </fieldset>
                 <div class="mb-4">
-                    <label for="testimonial" class="block text-sm font-medium text-gray-300 mb-2">Testimonial</label>
-                    <textarea id="testimonial" name="testimonial" placeholder="Enter testimonial content" required rows="4"
+                    <label for="testimonial-{{ $testimonial->id }}" class="block text-sm font-medium text-gray-300 mb-2">Testimonial</label>
+                    <textarea id="testimonial-{{ $testimonial->id }}" name="testimonial" placeholder="Enter testimonial content" required rows="4"
                         class="w-full px-3 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:border-blue-500">{{ $testimonial->testimonial }}</textarea>
                 </div>
                 <div class="mb-6">
-                    <label for="image_id" class="block text-sm font-medium text-gray-300 mb-2">Profile Image</label>
-                    <select id="image_id" name="image_id"
+                    <label for="image_id-{{ $testimonial->id }}" class="block text-sm font-medium text-gray-300 mb-2">Profile Image</label>
+                    <select id="image_id-{{ $testimonial->id }}" name="image_id"
                         class="w-full px-3 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:border-blue-500">
                         <option @if ($testimonial->image_id === null) selected @endif value="">No image</option>
                         @foreach ($images ?? [] as $image)

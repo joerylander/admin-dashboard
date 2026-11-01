@@ -13,7 +13,7 @@ Route::prefix('auth')->controller(AuthController::class)->name('')->group(functi
         Route::get('/login', 'showLogin')->name('show.login');
         Route::post('/login', 'login')->name('login');
     });
-    Route::post('/logout', 'logout')->name('logout');
+    Route::post('/logout', 'logout')->middleware('auth')->name('logout');
 });
 
 // Protected routes

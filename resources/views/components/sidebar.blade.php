@@ -4,8 +4,8 @@
             <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Navigation</h3>
             <ul class="space-y-1">
                 <li>
-                    <a href="/media"
-                        class="flex items-center px-3 py-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200 {{ request()->is('benefits*') ? 'bg-blue-600 text-white' : '' }}">
+                    <a href="{{ route('media.index') }}"
+                        class="flex items-center px-3 py-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200 {{ request()->is('media*') ? 'bg-blue-600 text-white' : '' }}">
                         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -17,7 +17,7 @@
                 </li>
                 <li>
                     <a href="/cv"
-                        class="flex items-center px-3 py-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200 {{ request()->is('benefits*') ? 'bg-blue-600 text-white' : '' }}">
+                        class="flex items-center px-3 py-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200 {{ request()->is('cv*') ? 'bg-blue-600 text-white' : '' }}">
                         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -29,7 +29,7 @@
                 </li>
                 <li>
                     <a href="/subscriptions"
-                        class="flex items-center px-3 py-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200 {{ request()->is('benefits*') ? 'bg-blue-600 text-white' : '' }}">
+                        class="flex items-center px-3 py-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200 {{ request()->is('subscriptions*') ? 'bg-blue-600 text-white' : '' }}">
                         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -49,7 +49,7 @@
             <ul class="space-y-1">
                 <li>
                     <a href="{{ route('projects.index') }}"
-                        class="flex items-center px-3 py-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200">
+                        class="flex items-center px-3 py-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-lg transition-colors duration-200 {{ request()->is('projects*') ? 'bg-blue-600 text-white' : '' }}">
                         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

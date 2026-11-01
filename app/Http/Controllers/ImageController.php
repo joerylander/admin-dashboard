@@ -5,25 +5,24 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class ImageController extends Controller
 {
    public function index() {
-         $images = Image::orderBy('created_at', 'desc')->get();
-        return view('media.index', compact('images'));
+      $images = Image::orderBy('created_at', 'desc')->get();
+      return view('media.index', ['images' => $images, 'categories' => Image::CATEGORIES]);
    }
 
    public function store(Request $request) {
-      $request->validate([
+      $validated = $request->validate([
          'image' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:2048',
-         'category' => 'required|string'
+         'category' => ['required', Rule::in(Image::CATEGORIES)]
       ]);
 
       $file = $request->file('image');
-      $filename = time() . '_' . $file->getClientOriginalName();
-      $category = $request->category;
-      $filePath = "images/$category/$filename";
-      Storage::disk('public')->put($filePath, file_get_contents($file));
+      // store() generates a unique, safe filename and returns the relative path
+      $filePath = $file->store("images/{$validated['category']}", 'public');
 
       Image::create([
          'file_path' => $filePath,

@@ -36,7 +36,5 @@ test('it can create and save an image using factory', function() {
     expect($image)->toBeInstanceOf(Image::class);
     expect($image->id)->not()->toBeNull();
     expect($image->file_path)->toContain('images/');
-    
-    dump("Created image: " . $image->file_path);
-    dump("URL would be: " . $image->url);
+    expect($image->url)->toEndWith('/storage/' . $image->file_path);
 });

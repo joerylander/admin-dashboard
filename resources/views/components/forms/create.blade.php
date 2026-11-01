@@ -1,6 +1,6 @@
  @props(['title', 'route'])
 
- <div id="createForm" class="hidden fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50">
+ <div id="createForm" data-modal-backdrop class="hidden fixed inset-0 bg-black/50 items-center justify-center z-50">
      <article class="bg-gray-800 rounded-lg w-full max-w-lg p-8">
          <h3 class="text-xl font-bold text-white mb-4">Create New {{ ucfirst($title) }}</h3>
          <form method="POST" action="{{ route('portfolio.' . $route . '.store') }}">

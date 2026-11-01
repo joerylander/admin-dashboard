@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Benefit extends Model
 {
-    /** @use HasFactory<\Database\Factories\BenefitsFactory> */
+    /** @use HasFactory<\Database\Factories\BenefitFactory> */
     use HasFactory;
     
     protected $fillable = ['title', 'description'];
